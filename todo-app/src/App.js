@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoList from './TodoList/todoList';
-import TodoItem from './TodoItem/todoItem';
 import AddTodo from './AddTodo/addTodo';
 
 import './App.css';
@@ -20,9 +19,10 @@ class App extends React.Component {
   render() {
    return(
      <div>
-       {
-         2+3
-       }
+       
+       <AddTodo addTodoFn= {this.addTodo}></AddTodo>
+       <TodoList todos = {this.state.todos}></TodoList>
+       
      </div>
    );
   }
@@ -38,6 +38,15 @@ class App extends React.Component {
     }
   }
 
-
+  // async function
+    addTodo = async (todo) =>  {
+      await this.setState({ todos: [...this.state.todos,{
+        text: todo,
+        completed: false
+      }] });
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+      console.log(localStorage.getItem('todos'));
+    }
+ 
 }
 export default App;
