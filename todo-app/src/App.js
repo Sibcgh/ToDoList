@@ -3,8 +3,8 @@ import TodoList from './TodoList/todoList';
 import AddTodo from './AddTodo/addTodo';
 
 import './App.css';
-
-// https://www.youtube.com/watch?v=ZcD5rJKm3Lk @ 17:02
+// https://www.youtube.com/watch?v=ZcD5rJKm3Lk 42:00
+// try to fix the issue in todoItem where the class doesnt work
 
 class App extends React.Component {
 
@@ -18,11 +18,9 @@ class App extends React.Component {
 
   render() {
    return(
-     <div>
-       
+     <div>       
        <AddTodo addTodoFn= {this.addTodo}></AddTodo>
-       <TodoList todos = {this.state.todos}></TodoList>
-       
+       <TodoList updateTodoFn ={this.updateTodo} todos = {this.state.todos}></TodoList> 
      </div>
    );
   }
@@ -48,5 +46,19 @@ class App extends React.Component {
       console.log(localStorage.getItem('todos'));
     }
  
-}
+    updateTodo = (todo) => {
+      const newTodos = this.state.todos.map(_todo => {
+        if(todo === _todo)
+          return {
+            text: todo.text,
+            completed: !todo.completed
+          }
+        else 
+          return _todo
+      });
+      this.setState({todo: newTodos});
+    }
+
+  }
+
 export default App;
