@@ -23,7 +23,7 @@ class TodoList extends React.Component {
     }
 
 
-    updateTodo = (todo) => {
+    updateTodo = (todo ) => {
         this.props.updateTodoFn(todo);
 
     }

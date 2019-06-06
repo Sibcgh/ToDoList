@@ -3,7 +3,6 @@ import TodoList from './TodoList/todoList';
 import AddTodo from './AddTodo/addTodo';
 
 import './App.css';
-// https://www.youtube.com/watch?v=ZcD5rJKm3Lk 42:00
 // try to fix the issue in todoItem where the class doesnt work
 
 class App extends React.Component {
@@ -57,6 +56,7 @@ class App extends React.Component {
           return _todo
       });
       this.setState({todo: newTodos});
+      console.log(newTodos);
     }
 
   }
