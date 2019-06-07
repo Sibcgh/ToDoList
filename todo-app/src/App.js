@@ -44,7 +44,7 @@ class App extends React.Component {
       localStorage.setItem('todos', JSON.stringify(this.state.todos));
       console.log(localStorage.getItem('todos'));
     }
- 
+  // got to fix this idk why it doesnt work
     updateTodo = (todo) => {
       const newTodos = this.state.todos.map(_todo => {
         if(todo === _todo)
