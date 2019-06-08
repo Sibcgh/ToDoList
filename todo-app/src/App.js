@@ -55,7 +55,7 @@ class App extends React.Component {
         else 
           return _todo
       });
-      this.setState({todo: newTodos});
+      this.setState({todos : newTodos});
       console.log(newTodos);
     }
 
